@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>로스트아크 각인 최적화</title>
+    <meta charset="charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+<h1>로스트아크 각인 최적화 사이트</h1>
+<form class=""  action="/api/find" method="post">
+    <div class="list">
+        <h4>목표 각인 입력</h4>
+        <div class="first">
+            <input type="text" name="first" placeholder="각인1" value="원한">
+            <select name="first_point">
+                <option value="0">미사용</option>
+                <option value="15" selected>15 (3레벨)</option>
+                <option value="10">10 (2레벨)</option>
+                <option value="5">5 (1레벨)</option>
+            </select>
+        </div>
+        <div class="second">
+            <input type="text" name="second" placeholder="각인2" value="점화">
+            <select name="second_point">
+                <option value="0">미사용</option>
+                <option value="15" selected>15 (3레벨)</option>
+                <option value="10">10 (2레벨)</option>
+                <option value="5">5 (1레벨)</option>
+            </select>
+        </div>
+        <div class="third">
+            <input type="text" name="third" placeholder="각인3" value="타격의대가">
+            <select name="third_point">
+                <option value="0">미사용</option>
+                <option value="15" selected>15 (3레벨)</option>
+                <option value="10">10 (2레벨)</option>
+                <option value="5">5 (1레벨)</option>
+            </select>
+        </div>
+        <div class="fourth">
+            <input type="text" name="fourth" placeholder="각인4" value="아드레날린">
+            <select name="fourth_point">
+                <option value="0">미사용</option>
+                <option value="15" selected>15 (3레벨)</option>
+                <option value="10">10 (2레벨)</option>
+                <option value="5">5 (1레벨)</option>
+            </select>
+        </div>
+        <div class="fifth">
+            <input type="text" name="fifth" placeholder="각인5" value="속전속결">
+            <select name="fifth_point">
+                <option value="0">미사용</option>
+                <option value="15" selected>15 (3레벨)</option>
+                <option value="10">10 (2레벨)</option>
+                <option value="5">5 (1레벨)</option>
+            </select>
+        </div>
+        <div class="sixth">
+            <input type="text" name="sixth" placeholder="각인6">
+            <select name="sixth_point">
+                <option value="0" selected>미사용</option>
+                <option value="15">15 (3레벨)</option>
+                <option value="10">10 (2레벨)</option>
+                <option value="5">5 (1레벨)</option>
+            </select>
+        </div>
+    </div>
+    <div class="stone">
+        <h4>어빌리티 스톤 각인</h4>
+        <div class="stone_1">
+            <input type="text" name="stone_1_text" placeholder="각인1" value="타격의대가">
+            <input type="stone_1_point" min="0" max="10" value="7">
+        </div>
+        <div class="stone_2">
+            <input type="text" name="stone_2_text" placeholder="각인2" value="속전속결">
+            <input type="stone_2_point" min="0" max="10" value="7">
+        </div>
+        <div class="stone_3">
+            <input type="text" id="stone_3_text" placeholder="감소 각인" value="이동속도 감소">
+            <input type="stone_3_point" min="0" max="10" value="3">
+        </div>
+    </div>
+    <div class="equip">
+        <h4>장착 각인</h4>
+        <div class="equip_1">
+            <input type="text" name="equip_1_text" placeholder="각인1" value="원한">
+            <select name="equip_1_point">
+                <option value="12" selected>12</option>
+                <option value="9">9</option>
+                <option value="6">6</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="equip_2">
+            <input type="text" name="equip_2_text" placeholder="각인2" value="점화">
+            <select name="equip_2_point">
+                <option value="12" selected>12</option>
+                <option value="9">9</option>
+                <option value="6">6</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+    </div>
+    <button>찾기</button>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
