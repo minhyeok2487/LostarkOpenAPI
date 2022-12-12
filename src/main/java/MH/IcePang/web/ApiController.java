@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RequiredArgsConstructor
 @Controller
@@ -37,9 +38,23 @@ public class ApiController {
 	}
 
 	@GetMapping("/api/markets/options")
-	public String GetData(Model model) {
+	public String CallMarketsOptions(Model model) {
 		JSONObject result = apiService.GetMarketsOptions();
 		model.addAttribute("result",result);
 		return "markets/options";
+	}
+
+	@PostMapping("/api/markets/items")
+	public String CallMarketCategories(int categories, Model model) {
+		JSONObject result = apiService.CallMarketCategories(categories);
+		log.info(result.toString());
+		model.addAttribute("result",result.get("Items"));
+		return "markets/items";
+	}
+
+	@GetMapping("/api/markets/items/{id}")
+	public String CallMarketsItems(@RequestParam int id, Model model) {
+		System.out.println(id);
+		return "markets/items";
 	}
 }

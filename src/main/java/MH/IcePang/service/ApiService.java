@@ -113,4 +113,96 @@ public class ApiService {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public JSONObject CallMarketCategories(int CategoryCode) {
+		try {
+			URL url = new URL("https://developer-lostark.game.onstove.com/markets/items/");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection(); // 서버 연결
+			httpURLConnection.setRequestMethod("POST");
+			httpURLConnection.setRequestProperty("authorization", "Bearer "+LostarkApiKey);
+			httpURLConnection.setRequestProperty("accept","application/json");
+			httpURLConnection.setRequestProperty("content-Type","application/json");
+			httpURLConnection.setDoOutput(true);
+
+			String parameter = "{\n"
+				+ "  \"Sort\": \"GRADE\",\n"
+				+ "  \"CategoryCode\": "+CategoryCode+",\n"
+				+ "  \"PageNo\": 1,\n"
+				+ "  \"SortCondition\": \"DESC\"\n"
+				+ "}";
+			byte[] out = parameter.getBytes(StandardCharsets.UTF_8);
+
+			OutputStream stream = httpURLConnection.getOutputStream();
+			stream.write(out);
+
+			int result = httpURLConnection.getResponseCode();
+
+			InputStream inputStream;
+			if(result == 200) {
+				inputStream = httpURLConnection.getInputStream();
+			} else {
+				inputStream = httpURLConnection.getErrorStream();
+			}
+			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+
+			JSONParser parser = new JSONParser();
+			JSONObject object = (JSONObject) parser.parse(inputStreamReader);
+			httpURLConnection.disconnect();
+			return object;
+		} catch (MalformedURLException e) {
+			throw new RuntimeException(e);
+		} catch (ProtocolException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public JSONObject CallMarketsItems(int ItemCode) {
+		try {
+			URL url = new URL("https://developer-lostark.game.onstove.com/markets/items/");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection(); // 서버 연결
+			httpURLConnection.setRequestMethod("POST");
+			httpURLConnection.setRequestProperty("authorization", "Bearer "+LostarkApiKey);
+			httpURLConnection.setRequestProperty("accept","application/json");
+			httpURLConnection.setRequestProperty("content-Type","application/json");
+			httpURLConnection.setDoOutput(true);
+
+			String parameter = "{\n"
+				+ "  \"Sort\": \"GRADE\",\n"
+				+ "  \"CategoryCode\": "+ItemCode+",\n"
+				+ "  \"PageNo\": 1,\n"
+				+ "  \"SortCondition\": \"DESC\"\n"
+				+ "}";
+			byte[] out = parameter.getBytes(StandardCharsets.UTF_8);
+
+			OutputStream stream = httpURLConnection.getOutputStream();
+			stream.write(out);
+
+			int result = httpURLConnection.getResponseCode();
+
+			InputStream inputStream;
+			if(result == 200) {
+				inputStream = httpURLConnection.getInputStream();
+			} else {
+				inputStream = httpURLConnection.getErrorStream();
+			}
+			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+
+			JSONParser parser = new JSONParser();
+			JSONObject object = (JSONObject) parser.parse(inputStreamReader);
+			httpURLConnection.disconnect();
+			return object;
+		} catch (MalformedURLException e) {
+			throw new RuntimeException(e);
+		} catch (ProtocolException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
