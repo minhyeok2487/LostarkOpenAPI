@@ -40,7 +40,6 @@ public class CompareService {
 		}
 		System.out.println(resultJsonArray.toString());
 		result.put("Items",resultJsonArray);
-
 		return result;
 	}
 
@@ -90,7 +89,7 @@ public class CompareService {
 		}
 		makePrice += price;
 		makePrice = Math.round(makePrice * 100.0) / 100.0;
-		System.out.println(makeName+" 제작 비용 = "+makePrice);
+		//System.out.println(makeName+" 제작 비용 = "+makePrice);
 		return makePrice;
 	}
 
