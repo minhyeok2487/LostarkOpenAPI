@@ -23,10 +23,10 @@ public class CompareService {
 	@Value("${Lostark-API-Key}")
 	private String LostarkApiKey;
 
-	private final ApiService apiService;
+	private final MarketApiService marketApiService;
 
-	public JSONObject 낚시비교() {
-		JSONObject result = apiService.CallMarketCategories(90600);
+	public JSONObject CompareFishing() {
+		JSONObject result = marketApiService.CallMarketCategories(90600);
 		JSONArray resultJsonArray = new JSONArray();
 		resultJsonArray = (JSONArray) result.get("Items");
 		JSONObject tempJson = new JSONObject();
@@ -40,15 +40,14 @@ public class CompareService {
 		}
 		System.out.println(resultJsonArray.toString());
 		result.put("Items",resultJsonArray);
-		double highestGrade = GetMakePrice(resultJsonArray, "최상급");
-		double advancedGrade = GetMakePrice(resultJsonArray, "상급");
-		double intermediateGrade = GetMakePrice(resultJsonArray, "중급");
 
 		return result;
 	}
 
 	//낚시 오레하 제작 비용 계산 메서드
-	public double GetMakePrice(JSONArray jsonArray, String makeName) {
+	public double GetMakePrice(JSONObject result, String makeName) {
+		JSONArray jsonArray = new JSONArray();
+		jsonArray = (JSONArray) result.get("Items");
 		double makePrice = 0.0;
 		int carp = 0;
 		int pearl = 0;
@@ -90,10 +89,9 @@ public class CompareService {
 			}
 		}
 		makePrice += price;
+		makePrice = Math.round(makePrice * 100.0) / 100.0;
 		System.out.println(makeName+" 제작 비용 = "+makePrice);
 		return makePrice;
 	}
-
-	//데이터 불러오는 메서드
 
 }

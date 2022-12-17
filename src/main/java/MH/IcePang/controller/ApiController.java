@@ -1,4 +1,4 @@
-package MH.IcePang.web;
+package MH.IcePang.controller;
 
 import MH.IcePang.dto.DataDto;
 import MH.IcePang.service.ApiService;
@@ -29,28 +29,6 @@ public class ApiController {
 		return "find";
 	}
 
-	@GetMapping("/api/fishing")
-	public String CompareFishing(Model model) {
-		JSONObject result = compareService.낚시비교();
-		log.info(result.toString());
-		model.addAttribute("result",result.get("Items"));
-		return "comparefishing";
-	}
-
-	@GetMapping("/api/markets/options")
-	public String CallMarketsOptions(Model model) {
-		JSONObject result = apiService.GetMarketsOptions();
-		model.addAttribute("result",result);
-		return "markets/options";
-	}
-
-	@PostMapping("/api/markets/items")
-	public String CallMarketCategories(int categories, Model model) {
-		JSONObject result = apiService.CallMarketCategories(categories);
-		log.info(result.toString());
-		model.addAttribute("result",result.get("Items"));
-		return "markets/items";
-	}
 
 	@GetMapping("/api/markets/items/{id}")
 	public String CallMarketsItems(@RequestParam int id, Model model) {

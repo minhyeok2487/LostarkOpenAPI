@@ -1,0 +1,108 @@
+{{>layouts/header}}
+    <title>로스트아크 낚시 제작 비교</title>
+</head>
+<body>
+<div>
+    <caption>낚시 재료 가격</caption>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">이름</th>
+                <th scope="col">묶음 갯수</th>
+                <th scope="col">묶음당 가격</th>
+                <th scope="col">1개당 가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#result}}
+            <tr>
+                <td><img src="{{Icon}}"></td>
+                <td>{{Name}}</td>
+                <td>{{BundleCount}}</td>
+                <td>{{RecentPrice}}</td>
+                <td>{{one}}</td>
+            </tr>
+            {{/result}}
+        </tbody>
+    </table>
+</div>
+<div>
+    <caption>오레하 제작 재료</caption>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">이름</th>
+                <th scope="col">오레하 태양 잉어</th>
+                <th scope="col">자연산 진주</th>
+                <th scope="col">생선</th>
+                <th scope="col">제작비용</th>
+                <th scope="col">총 제작비용</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>최상급 오레하 (15개)</td>
+                <td>52개</td>
+                <td>69개</td>
+                <td>142개</td>
+                <td>285골드</td>
+                <td>{{makeHighestGrade}}골드</td>
+            </tr>
+            <tr>
+                <td>상급 오레하 (20개)</td>
+                <td>16개</td>
+                <td>64개</td>
+                <td>128개</td>
+                <td>237골드</td>
+                <td>{{makeAdvancedGrade}}골드</td>
+            </tr>
+            <tr>
+                <td>중급 오레하 (30개)</td>
+                <td>10개</td>
+                <td>40개</td>
+                <td>80개</td>
+                <td>194골드</td>
+                <td>{{makeIntermediateGrade}}골드</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <caption>오레하 구매와 비교</caption>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">갯수</th>
+            <th scope="col">오레하 구매 비용(골드)</th>
+            <th scope="col">제작 비용(골드)</th>
+            <th scope="col">비교(골드)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>최상급 오레하</td>
+            <td>15개</td>
+            <td>{{highestGrade}}</td>
+            <td>{{makeHighestGrade}}</td>
+            <td>{{highestValue}}</td>
+        </tr>
+        <tr>
+            <td>상급 오레하</td>
+            <td>20개</td>
+            <td>{{advancedGrade}}</td>
+            <td>{{makeAdvancedGrade}}</td>
+            <td>{{advancedValue}}</td>
+        </tr>
+        <tr>
+            <td>중급 오레하</td>
+            <td>30개</td>
+            <td>{{intermediateGrade}}</td>
+            <td>{{makeIntermediateGrade}}</td>
+            <td>{{intermediateValue}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+{{>layouts/footer}}

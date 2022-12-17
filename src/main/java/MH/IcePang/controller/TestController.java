@@ -1,4 +1,4 @@
-package MH.IcePang.web;
+package MH.IcePang.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
