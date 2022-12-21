@@ -1,19 +1,9 @@
 package MH.IcePang.service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -26,20 +16,18 @@ public class CompareService {
 	private final MarketApiService marketApiService;
 
 	public JSONObject CompareFishing() {
-		JSONObject result = marketApiService.CallMarketCategories(90600);
-		JSONArray resultJsonArray = new JSONArray();
-		resultJsonArray = (JSONArray) result.get("Items");
+		JSONArray jsonArray = marketApiService.CallMarketCategories(90600);
 		JSONObject tempJson = new JSONObject();
-		for(int i = 0; i < resultJsonArray.size(); i++) {
-			tempJson = (JSONObject) resultJsonArray.get(i);
+		for(int i = 0; i < jsonArray.size(); i++) {
+			tempJson = (JSONObject) jsonArray.get(i);
 			double RecentPrice = Double.parseDouble(tempJson.get("RecentPrice").toString());
 			double BundleCount = Double.parseDouble(tempJson.get("BundleCount").toString());
 			double one = RecentPrice/BundleCount;
 			tempJson.put("one",one);
-			((JSONObject) resultJsonArray.get(i)).put("one", one);
+			((JSONObject) jsonArray.get(i)).put("one", one);
 		}
-		System.out.println(resultJsonArray.toString());
-		result.put("Items",resultJsonArray);
+		JSONObject result = new JSONObject();
+		result.put("Items",jsonArray);
 		return result;
 	}
 

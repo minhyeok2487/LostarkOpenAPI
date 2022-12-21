@@ -1,9 +1,9 @@
 package MH.IcePang.controller;
 
-import MH.IcePang.service.ApiService;
 import MH.IcePang.service.MarketApiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +26,9 @@ public class MarketController {
 
 	@PostMapping("/api/markets/categories")
 	public String CallMarketCategories(int categories, Model model) {
-		JSONObject result = marketApiService.CallMarketCategories(categories);
-		log.info(result.toString());
-		model.addAttribute("result",result.get("Items"));
+		JSONArray result = marketApiService.CallMarketCategories(categories);
+
+		model.addAttribute("result",result);
 		return "markets/items";
 	}
 }
