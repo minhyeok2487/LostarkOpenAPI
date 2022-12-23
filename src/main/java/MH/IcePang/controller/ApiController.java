@@ -29,10 +29,4 @@ public class ApiController {
 		return "find";
 	}
 
-
-	@GetMapping("/api/markets/items/{id}")
-	public String CallMarketsItems(@RequestParam int id, Model model) {
-		System.out.println(id);
-		return "markets/items";
-	}
 }

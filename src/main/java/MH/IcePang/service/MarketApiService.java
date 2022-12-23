@@ -66,7 +66,7 @@ public class MarketApiService {
 			httpURLConnection.setDoOutput(true);
 
 			String parameter = "{\n"
-				+ "  \"Sort\": \"GRADE\",\n"
+				+ "  \"Sort\": \"RECENT_PRICE\",\n"
 				+ "  \"CategoryCode\": "+CategoryCode+",\n"
 				+ "  \"PageNo\": 1,\n"
 				+ "  \"SortCondition\": \"DESC\"\n"
@@ -89,6 +89,7 @@ public class MarketApiService {
 			JSONParser parser = new JSONParser();
 			JSONObject object = (JSONObject) parser.parse(inputStreamReader);
 
+			// 모든 데이터 불러오기 추가
 			int pageNo = 0;
 			int pageSize = 10;
 			int totalCount = Integer.parseInt(object.get("TotalCount").toString());
@@ -103,6 +104,7 @@ public class MarketApiService {
 					jsonArray.add(tempJson);
 				}
 			}
+			// 모든 데이터 불러오기 완료
 
 			httpURLConnection.disconnect();
 			return jsonArray;
@@ -128,7 +130,7 @@ public class MarketApiService {
 			httpURLConnection.setDoOutput(true);
 
 			String parameter = "{\n"
-				+ "  \"Sort\": \"GRADE\",\n"
+				+ "  \"Sort\": \"RECENT_PRICE\",\n"
 				+ "  \"CategoryCode\": "+CategoryCode+",\n"
 				+ "  \"PageNo\": "+PageNo+",\n"
 				+ "  \"SortCondition\": \"DESC\"\n"

@@ -1,5 +1,6 @@
 package MH.IcePang.controller;
 
+import MH.IcePang.service.MarketApiService;
 import MH.IcePang.service.SuppressionService;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.JSONArray;
@@ -12,12 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class SuppressionController {
 
-	private static SuppressionService suppressionService;
+	private final MarketApiService marketApiService;
 
 	@GetMapping("/api/suppression")
-	public String GetData(Model model) {
-		JSONArray result = suppressionService.GetSonavel();
-		model.addAttribute("result", result);
+	public String CallSuppression(Model model) {
+		JSONArray result = marketApiService.CallMarketCategories(50000);
+		//model.addAttribute("result", result);
 		return "suppression";
 	}
 }
