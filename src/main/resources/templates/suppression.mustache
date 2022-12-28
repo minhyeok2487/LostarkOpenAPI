@@ -2,32 +2,77 @@
 <title>로스트아크 가디언 토벌 비교</title>
 </head>
 <body>
-<div>
-    <caption>소나벨</caption>
+<div style="border : 2px solid black">
+    <p><img src="/images/sonavel.jpeg" width="400"></p>
+    <caption>소나벨 현재 가격</caption>
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">1수 (휴게x)</th>
-            <th scope="col">총 0 골드</th>
+            <th scope="col">이름</th>
+            <th scope="col">경매장 가격</th>
+            <th scope="col">소나벨 1수</th>
+            <th scope="col">골드</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>정파강</td>
-            <td>33.4개</td>
-            <td>0골드</td>
+            <td>{{sonavel.nameData1}}</td>
+            <td>{{sonavel.priceData1}}골드</td>
+            <td>{{sonavel.countData1}}개</td>
+            <td>{{sonavel.totalData1}}골드</td>
         </tr>
         <tr>
-            <td>정수강</td>
-            <td>100개</td>
-            <td>0골드</td>
+            <td>{{sonavel.nameData2}}</td>
+            <td>{{sonavel.priceData2}}골드</td>
+            <td>{{sonavel.countData2}}개</td>
+            <td>{{sonavel.totalData2}}골드</td>
         </tr>
         <tr>
-            <td>찬명돌</td>
-            <td>4개</td>
-            <td>0골드</td>
+            <td>{{sonavel.nameData3}}</td>
+            <td>{{sonavel.priceData3}}골드</td>
+            <td>{{sonavel.countData3}}개</td>
+            <td>{{sonavel.totalData3}}골드</td>
         </tr>
         </tbody>
     </table>
+    <p>총 {{sonavel.totalPrice}} 골드</p>
+</div>
+<div style="border : 2px solid black">
+    <p><img src="/images/hanu.png" width="400"></p>
+    <caption>하누마탄 현재 가격</caption>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">경매장 가격</th>
+            <th scope="col">하누마탄 1수</th>
+            <th scope="col">골드</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{hanumatan.nameData1}}</td>
+            <td>{{hanumatan.priceData1}}골드</td>
+            <td>{{hanumatan.countData1}}개</td>
+            <td>{{hanumatan.totalData1}}골드</td>
+        </tr>
+        <tr>
+            <td>{{hanumatan.nameData2}}</td>
+            <td>{{hanumatan.priceData2}}골드</td>
+            <td>{{hanumatan.countData2}}개</td>
+            <td>{{hanumatan.totalData2}}골드</td>
+        </tr>
+        <tr>
+            <td>{{hanumatan.nameData3}}</td>
+            <td>{{hanumatan.priceData3}}골드</td>
+            <td>{{hanumatan.countData3}}개</td>
+            <td>{{hanumatan.totalData3}}골드</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>총 {{hanumatan.totalPrice}} 골드</p>
+</div>
+<div style="border : 2px solid red">
+    <h4>수호강석 제외 가격 차이 = {{distance}}</h4>
 </div>
 {{>layouts/footer}}
