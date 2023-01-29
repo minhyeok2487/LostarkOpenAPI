@@ -1,0 +1,46 @@
+{{>layouts/header}}
+<title>카오스 던전 데이터 통계</title>
+</head>
+<body>
+<h1>카오스 던전 데이터 레벨별 통계(1수당 기준)</h1>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">레벨</th>
+            <th scope="col">총 수확</th>
+            <th scope="col">실링</th>
+            <th scope="col">골드</th>
+            <th scope="col">명파</th>
+            <th scope="col">돌파석</th>
+            <th scope="col">파괴석</th>
+            <th scope="col">수호석</th>
+            <th scope="col">보석</th>
+            <th scope="col">큐브 티켓</th>
+            <th scope="col">회랑 티켓</th>
+            <th scope="col">골드방</th>
+            <th scope="col">보스방</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#chaosDungeonStatistics}}
+            <tr>
+                <th scope="row">{{level}}</th>
+                <td>{{counts}}</td>
+                <td>{{shilling}}</td>
+                <td>{{gold}}</td>
+                <td>{{honorShard}}</td>
+                <td>{{leapstone}}</td>
+                <td>{{destructionStone}}</td>
+                <td>{{guardianStone}}</td>
+                <td>{{jewelry}}</td>
+                <td>{{cubeTicket}}</td>
+                <td>{{hallTicket}}</td>
+                <td>{{goldRoom}}</td>
+                <td>{{bossRoom}}</td>
+            </tr>
+        {{/chaosDungeonStatistics}}
+        </tbody>
+    </table>
+</div>
+{{>layouts/footer}}
