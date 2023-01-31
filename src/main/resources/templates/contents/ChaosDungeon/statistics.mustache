@@ -2,8 +2,8 @@
 <title>카오스 던전 데이터 통계</title>
 </head>
 <body>
-<h1>카오스 던전 데이터 레벨별 통계</h1>
-<div>
+<div class="container-xl">
+    <h1>카오스 던전 데이터 레벨별 통계</h1>
     <h3>1수확당 얻는 재료</h3>
     <table class="table table-striped w-auto">
         <thead>
@@ -44,33 +44,68 @@
         </tbody>
     </table>
 </div>
-<div>
+<div class="container-xl">
     <h3>거래 가능 재화</h3>
-    <p>큐브, 회랑, 골드방, 보스방 제외</p>
+    <p>큐브, 회랑 티켓 제외</p>
     <p>파괴석 수호석 가격은 전날 평균 판매가, 보석은 현재 경매장 3티어 1레벨 보석 최저가 기준</p>
-    <table class="table table-striped w-auto">
-        <thead>
-        <tr>
-            <th scope="col">레벨</th>
-            <th scope="col">파괴석</th>
-            <th scope="col">수호석</th>
-            <th scope="col">골드</th>
-            <th scope="col">보석</th>
-            <th scope="col">토탈</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#chaosDungeonGold}}
-            <tr>
-                <th scope="row">{{level}}</th>
-                <td>{{destructionStone}}</td>
-                <td>{{guardianStone}}</td>
-                <td>{{gold}}</td>
-                <td>{{jewelry}}</td>
-                <td style="font-weight : bold;"> {{total}}</td>
-            </tr>
-        {{/chaosDungeonGold}}
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-sm">
+            <table class="table table-striped" id="chaosDungeon-1">
+                <thead>
+                <tr>
+                    <th scope="col">레벨</th>
+                    <th scope="col">파괴석</th>
+                    <th scope="col">수호석</th>
+                    <th scope="col">골드</th>
+                    <th scope="col">보석</th>
+                    <th scope="col">토탈</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#chaosDungeonGold}}
+                    <tr>
+                        <th scope="row">{{level}}</th>
+                        <td>{{destructionStone}}</td>
+                        <td>{{guardianStone}}</td>
+                        <td>{{gold}}</td>
+                        <td>{{jewelry}}</td>
+                        <td style="font-weight : bold;" name="total"> {{total}}</td>
+                    </tr>
+                {{/chaosDungeonGold}}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm">
+            <canvas id="line-chart" width="100%" height="70%"></canvas>
+        </div>
+    </div>
 </div>
+<script>
+  var columns = new Array();
+  var chaosDungeon_1 = new Array();
+  $("#chaosDungeon-1 tbody th").each(function(index, element) {
+    columns.push(element.innerText);
+  });
+  $("#chaosDungeon-1 [name=total]").each(function(index, element) {
+    chaosDungeon_1.push(element.innerText);
+  });
+  new Chart(document.getElementById("line-chart"), {
+    type: 'line',
+    data: {
+      labels: columns,
+      datasets: [{
+          data: chaosDungeon_1,
+          label: "1수 거래가능 재화",
+          borderColor: "#3e95cd",
+          fill: false
+        }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: '레벨대별 카오스던전 수확 비용'
+      }
+    }
+  });
+</script>
 {{>layouts/footer}}
