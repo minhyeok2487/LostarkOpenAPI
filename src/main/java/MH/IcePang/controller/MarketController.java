@@ -28,7 +28,6 @@ public class MarketController {
 	@PostMapping("/api/markets/categories")
 	public String CallMarketCategories(int categories, Model model) {
 		JSONArray result = marketApiService.CallMarketCategories(categories);
-
 		model.addAttribute("result",result);
 		return "markets/items";
 	}

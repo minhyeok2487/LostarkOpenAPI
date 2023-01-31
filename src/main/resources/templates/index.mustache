@@ -11,5 +11,22 @@
     <input type="button" onclick="location.href='/api/markets'" value="거래소 계산">
     <input type="button" onclick="location.href='/api/fishing'" value="낚시 효율 계산">
     <input type="button" onclick="location.href='/api/suppression'" value="가디언 토벌 비교">
+    <input type="button" onclick="saveCode50000();" value="재련재료 데이터 저장">
 </div>
+
+<script>
+function saveCode50000() {
+    $.ajax({
+        type : "GET",
+        url : "/api/saveCode50000",
+        success : function(res){
+            // 응답코드 > 0000
+            console.log(res);
+        },
+        error : function(XMLHttpRequest, textStatus, errorThrown){
+            alert("통신 실패.")
+        }
+    });
+}
+</script>
 {{>layouts/footer}}

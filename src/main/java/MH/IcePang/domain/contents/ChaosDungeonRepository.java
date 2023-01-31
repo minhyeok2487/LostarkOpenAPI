@@ -1,11 +1,10 @@
 package MH.IcePang.domain.contents;
 
-import MH.IcePang.dto.ChaosDungeonStatisticsDto;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface ChaosDungeonRepository extends JpaRepository<ChaosDungeonData,Integer> {
+public interface ChaosDungeonRepository extends JpaRepository<ChaosDungeon,Integer> {
 
 	@Query(value = "SELECT id, level,\n"
 		+ "\tsum(counts) as counts, \n"
@@ -21,5 +20,5 @@ public interface ChaosDungeonRepository extends JpaRepository<ChaosDungeonData,I
 		+ "\tROUND(sum(gold_room)/sum(counts),2) as gold_room,\n"
 		+ "\tROUND(sum(boss_room)/sum(counts),2) as boss_room\n"
 		+ "\tFROM chaos_dungeon_data group by level;", nativeQuery = true)
-	List<ChaosDungeonData> chaosDungeonStatisticsList();
+	List<ChaosDungeon> chaosDungeonStatisticsList();
 }

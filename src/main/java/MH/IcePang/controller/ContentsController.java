@@ -1,6 +1,6 @@
 package MH.IcePang.controller;
 
-import MH.IcePang.domain.contents.ChaosDungeonData;
+import MH.IcePang.domain.contents.ChaosDungeon;
 import MH.IcePang.service.ChaosDungeonService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ public class ContentsController {
 
 	@GetMapping("/contents/ChaosDungeon/data")
 	public String chaosDungeonData(Model model) {
-		List<ChaosDungeonData> chaosDungeonData = chaosDungeonService.getChaosDungeonData();
+		List<ChaosDungeon> chaosDungeonData = chaosDungeonService.getChaosDungeonData();
 		log.info(chaosDungeonData.get(0).toString());
 		model.addAttribute("chaosDungeonData", chaosDungeonData);
 		return "contents/ChaosDungeon/data";
@@ -26,7 +26,7 @@ public class ContentsController {
 
 	@GetMapping("/contents/ChaosDungeon/statistics")
 	public String chaosDungeonStatistics(Model model) {
-		List<ChaosDungeonData> chaosDungeonStatistics = chaosDungeonService.getChaosDungeonStatistics();
+		List<ChaosDungeon> chaosDungeonStatistics = chaosDungeonService.getChaosDungeonStatistics();
 		log.info(chaosDungeonStatistics.toString());
 		model.addAttribute("chaosDungeonStatistics", chaosDungeonStatistics);
 		return "contents/ChaosDungeon/statistics";
