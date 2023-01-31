@@ -19,6 +19,8 @@ public interface ChaosDungeonRepository extends JpaRepository<ChaosDungeon,Integ
 		+ "\tROUND(sum(hall_ticket)/sum(counts),2) as hall_ticket,\n"
 		+ "\tROUND(sum(gold_room)/sum(counts),2) as gold_room,\n"
 		+ "\tROUND(sum(boss_room)/sum(counts),2) as boss_room\n"
-		+ "\tFROM chaos_dungeon_data group by level;", nativeQuery = true)
+		+ "\tFROM chaos_dungeon group by level;", nativeQuery = true)
 	List<ChaosDungeon> chaosDungeonStatisticsList();
+
+	ChaosDungeon findById(int id);
 }

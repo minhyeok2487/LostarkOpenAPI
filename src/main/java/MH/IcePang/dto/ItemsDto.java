@@ -47,15 +47,15 @@ public class ItemsDto {
 
 	public Items toEntity() {
 		return Items.builder()
-			.Id(Id)
-			.Name(Name)
-			.Grade(Grade)
-			.Icon(Icon)
-			.BundleCount(BundleCount)
-			.TradeRemainCount(TradeRemainCount)
-			.YDayAvgPrice(YDayAvgPrice)
-			.RecentPrice(RecentPrice)
-			.CurrentMinPrice(CurrentMinPrice)
+			.id(Id)
+			.name(Name)
+			.grade(Grade)
+			.icon(Icon)
+			.bundleCount(BundleCount)
+			.tradeRemainCount(TradeRemainCount)
+			.yDayAvgPrice(YDayAvgPrice)
+			.recentPrice(RecentPrice)
+			.currentMinPrice(CurrentMinPrice)
 			.build();
 	}
 }

@@ -40,7 +40,7 @@ public class ApiController {
 
 	@ResponseBody
 	@GetMapping("/api/saveCode50000")
-	public JSONArray test() {
+	public JSONArray SaveCode50000() {
 		JSONArray result = marketApiService.CallMarketCategories(50000);
 		result.forEach((data) -> {
 			ItemsDto itemsDto = new ItemsDto((JSONObject) data);

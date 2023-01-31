@@ -1,5 +1,6 @@
 package MH.IcePang.domain.items;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,22 +18,23 @@ import lombok.NoArgsConstructor;
 public class Items {
 
 	@Id
-	private int Id;
+	private int id;
 
-	private String Name;
+	private String name;
 
-	private String Grade;
+	private String grade;
 
-	private String Icon;
+	private String icon;
 
-	private int BundleCount;
+	private int bundleCount;
 
-	private int TradeRemainCount;
+	private int tradeRemainCount;
 
-	private double YDayAvgPrice;
+	@Column(name = "y_day_avg_price")
+	private double yDayAvgPrice;
 
-	private int RecentPrice;
+	private int recentPrice;
 
-	private int CurrentMinPrice;
+	private int currentMinPrice;
 
 }
