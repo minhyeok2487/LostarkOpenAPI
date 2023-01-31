@@ -17,4 +17,6 @@ public class ChaosDungeonItemsDto {
 	private double jewelry;
 
 	private double gold;
+
+	private double total;
 }
